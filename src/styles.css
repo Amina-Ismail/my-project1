@@ -97,9 +97,3 @@ body {
   color: #fff;
   transition: all 150ms ease-in-out;
 }
-
-.col {
-  display: inline-flex;
-  line-height: 1;
-  margin: 5px;
-}
