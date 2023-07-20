@@ -1,0 +1,105 @@
+body {
+  text-align: center;
+  font-family: sans-serif;
+  background-image: url("images/25503.jpg");
+  background-attachment: fixed;
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+.city {
+  padding: 20px;
+  font-family: sans-serif;
+  font-weight: bolder;
+}
+.current-day {
+  font-weight: bold;
+  line-height: 2;
+  letter-spacing: 2px;
+  font-size: 30px;
+  display: contents;
+}
+
+.degrees {
+  font-size: 40px;
+  font-weight: 600;
+  color: #155263;
+}
+.units {
+  font-size: 20px;
+}
+
+.description {
+  font-size: 25px;
+  text-transform: capitalize;
+}
+#city-name {
+  font-size: 35px;
+}
+
+.card-body {
+  font-size: 30px;
+}
+.card-text {
+  color: #155263;
+  font-weight: bold;
+}
+
+.card {
+  height: fit-content;
+  display: flex;
+  flex-direction: column;
+  padding: 20px;
+  background: rgb(248, 243, 232, 0.3);
+  box-shadow: 0 0 40px rgba(0, 0, 0, 0.2), 0 0 40px rgba(0, 0, 0, 0.2);
+  border-radius: 3px;
+  margin-top: 30px;
+  margin-bottom: 30px;
+  font-family: sans-serif;
+  font-weight: normal;
+  font-size: 20px;
+  color: #4a4a7d;
+}
+.temp-desc {
+  font-weight: bold;
+  font-size: 20px;
+  text-transform: capitalize;
+}
+#current-Button {
+  border: none;
+  padding: 1px 5px;
+  color: rgb(52, 50, 50);
+  border-radius: 5px;
+}
+
+.searchButton {
+  border: none;
+  padding: 1px 5px;
+  color: rgb(52, 50, 50);
+  border-radius: 5px;
+}
+.unitC {
+  font-size: 35px;
+  color: #155263;
+}
+
+#search-input {
+  padding: 15px;
+  font-size: 20px;
+}
+
+.searchButton:hover {
+  background: cornflowerblue;
+  color: #fff;
+  transition: all 150ms ease-in-out;
+}
+#current-Button:hover {
+  background: cornflowerblue;
+  color: #fff;
+  transition: all 150ms ease-in-out;
+}
+
+.col {
+  display: inline-flex;
+  line-height: 1;
+  margin: 5px;
+}
