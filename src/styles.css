@@ -108,3 +108,12 @@ ul {
   font-size: 50px;
   line-height: 1;
 }
+
+.active {
+  color: #155263;
+  cursor: default;
+}
+
+.active:hover {
+  text-decoration: none;
+}

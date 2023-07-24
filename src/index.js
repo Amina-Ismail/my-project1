@@ -31,7 +31,9 @@ function showTemperature(response) {
   let dateElement = document.querySelector(".dateAndTime");
   let iconElement = document.querySelector("#icon");
 
-  temperatureElement.innerHTML = Math.round(response.data.temperature.current);
+  celsiusTemperature = response.data.temperature.current;
+
+  temperatureElement.innerHTML = Math.round(celsiusTemperature);
   cityElement.innerHTML = response.data.city;
   description.innerHTML = response.data.condition.description;
   humidityElement.innerHTML = Math.round(response.data.temperature.humidity);
@@ -57,7 +59,32 @@ function handleSearch(event) {
   search(cityInputElement.value);
 }
 
+function displayFahrenheitTemp(event) {
+  event.preventDefault();
+  let temperatureElement = document.querySelector(".degrees");
+  celsiusLink.classList.remove("active");
+  fahrenheitLink.classList.add("active");
+  let fahrentheitElement = (celsiusTemperature * 9) / 5 + 32;
+  temperatureElement.innerHTML = Math.round(fahrentheitElement);
+}
+
+function displayCelsiusTemp(event) {
+  event.preventDefault();
+  let temperatureElement = document.querySelector(".degrees");
+  celsiusLink.classList.add("active");
+  fahrenheitLink.classList.remove("active");
+  temperatureElement.innerHTML = Math.round(celsiusTemperature);
+}
+
+let celsiusTemperature = null;
+
 let form = document.querySelector("#search-input");
 form.addEventListener("submit", handleSearch);
+
+let fahrenheitLink = document.querySelector("#fahrenheit-link");
+fahrenheitLink.addEventListener("click", displayFahrenheitTemp);
+
+let celsiusLink = document.querySelector("#celsius-link");
+celsiusLink.addEventListener("click", displayCelsiusTemp);
 
 search("Durban");
