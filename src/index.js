@@ -1,71 +1,63 @@
-let change = document.querySelector(".para-date");
-let now = new Date();
-let dates = now.getDate();
-let months = [
-  "January",
-  "February",
-  "March",
-  "April",
-  "May",
-  "June",
-  "July",
-  "August",
-  "September",
-  "October",
-  "November",
-  "December",
-];
-let month = months[now.getMonth()];
-let year = now.getFullYear();
-change.innerHTML = `${dates} ${month} ${year}`;
-
-function getPosition(position) {
-  console.log(position);
-  let latitude = position.coords.latitude;
-  let longtitude = position.coords.longitude;
-
-  let apiKey = "c03face7caa58a9b7ffa9f52b7238a93";
-  let units = "metric";
-  let apiUrl = `https://api.openweathermap.org/data/2.5/weather?lat=${latitude}&lon=${longtitude}&appid=${apiKey}&units=${units}`;
-
-  axios.get(apiUrl).then(showWeather);
+function formatDate(timestamp) {
+  let date = new Date(timestamp);
+  let hours = date.getHours();
+  if (hours < 10) {
+    hours = `0${hours}`;
+  }
+  let minutes = date.getMinutes();
+  if (minutes < 10) {
+    minutes = `0${minutes}`;
+  }
+  let days = [
+    "Sunday",
+    "Monday",
+    "Tuesday",
+    "Wednesday",
+    "Thursday",
+    "Friday",
+    "Saturday",
+  ];
+  let day = days[date.getDay()];
+  return `${day} ${hours}:${minutes}`;
 }
 
-function getCurrentLoc(event) {
-  event.preventDefault();
-  navigator.geolocation.getCurrentPosition(getPosition);
-}
-
-let getCurrentLocButton = document.querySelector("#current-Button");
-getCurrentLocButton.addEventListener("click", getCurrentLoc);
-
-function search(event) {
-  event.preventDefault();
-  let searchInput = document.querySelector("#city-input");
-  searchCity(searchInput.value);
-}
-
-function searchCity(city) {
-  let apiKey = "c03face7caa58a9b7ffa9f52b7238a93";
-  let units = "metric";
-  let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=${units}`;
-  axios.get(apiUrl).then(showWeather);
-}
-
-function showWeather(response) {
-  let showTemp = Math.round(response.data.main.temp);
-  console.log(showTemp);
+function showTemperature(response) {
   console.log(response);
+  let temperatureElement = document.querySelector(".degrees");
+  let cityElement = document.querySelector("#city");
+  let description = document.querySelector(".description");
+  let humidityElement = document.querySelector("#humidity");
+  let windElement = document.querySelector("#wind");
+  let dateElement = document.querySelector(".dateAndTime");
+  let iconElement = document.querySelector("#icon");
 
-  let displayTemp = document.querySelector(".degrees");
-  displayTemp.innerHTML = showTemp;
+  temperatureElement.innerHTML = Math.round(response.data.temperature.current);
+  cityElement.innerHTML = response.data.city;
+  description.innerHTML = response.data.condition.description;
+  humidityElement.innerHTML = Math.round(response.data.temperature.humidity);
+  windElement.innerHTML = Math.round(response.data.wind.speed);
+  dateElement.innerHTML = formatDate(response.data.time * 1000);
+  iconElement.setAttribute(
+    "src",
+    `http://shecodes-assets.s3.amazonaws.com/api/weather/icons/${response.data.condition.icon}.png`
+  );
+  iconElement.setAttribute("alt", response.data.condition.description);
+}
 
-  let cityName = document.querySelector("#city-name");
-  cityName.innerHTML = response.data.name;
+function search(city) {
+  let apiKey = "b1332ot408bf42fec23dfc7ca30a0576";
+  let apiUrl = `https://api.shecodes.io/weather/v1/current?query=${city}&key=b1332ot408bf42fec23dfc7ca30a0576&units=metric`;
 
-  let descr = document.querySelector(".description");
-  descr.innerHTML = response.data.weather[0].main;
+  axios.get(apiUrl).then(showTemperature);
+}
+
+function handleSearch(event) {
+  event.preventDefault();
+  let cityInputElement = document.querySelector("#city-input");
+  search(cityInputElement.value);
 }
 
 let form = document.querySelector("#search-input");
-form.addEventListener("submit", search);
+form.addEventListener("submit", handleSearch);
+
+search("Durban");

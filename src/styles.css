@@ -11,29 +11,30 @@ body {
   font-family: sans-serif;
   font-weight: bolder;
 }
-.current-day {
-  font-weight: bold;
-  line-height: 2;
-  letter-spacing: 2px;
-  font-size: 30px;
-  display: contents;
+.currentDay {
+  text-align: left;
 }
 
 .degrees {
-  font-size: 40px;
+  font-size: 64px;
   font-weight: 600;
   color: #155263;
 }
 .units {
+  position: relative;
   font-size: 20px;
+  top: -34px;
 }
 
-.description {
-  font-size: 25px;
-  text-transform: capitalize;
-}
 #city-name {
   font-size: 35px;
+}
+
+ul {
+  position: relative;
+  bottom: -70px;
+  text-transform: capitalize;
+  text-align: left;
 }
 
 .card-body {
@@ -101,4 +102,9 @@ body {
 .footer {
   border: 1px solid;
   border-radius: 3px;
+}
+
+#Icon {
+  font-size: 50px;
+  line-height: 1;
 }
