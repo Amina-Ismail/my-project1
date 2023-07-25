@@ -76,20 +76,6 @@ function displayCelsiusTemp(event) {
   temperatureElement.innerHTML = Math.round(celsiusTemperature);
 }
 
-function getPosition(GeolocationPosition) {
-  console.log(GeolocationPosition);
-  let lat = GeolocationPosition.coords.latitude;
-  let lon = GeolocationPosition.coords.longitude;
-  let apiKey = "b1332ot408bf42fec23dfc7ca30a0576";
-  let apiUrl = `https://api.shecodes.io/weather/v1/current?lon=${lon}&lat=${lat}&key=b1332ot408bf42fec23dfc7ca30a0576$units=metric`;
-  axios.get(apiUrl).then(showTemperature);
-}
-
-function currentLocation(event) {
-  event.preventDefault();
-  navigator.geolocation.getCurrentPosition(getPosition);
-}
-
 let celsiusTemperature = null;
 
 let form = document.querySelector("#search-input");
@@ -101,7 +87,39 @@ fahrenheitLink.addEventListener("click", displayFahrenheitTemp);
 let celsiusLink = document.querySelector("#celsius-link");
 celsiusLink.addEventListener("click", displayCelsiusTemp);
 
-let getCurrentLocation = document.querySelector("#current-button");
-getCurrentLocation.addEventListener("click", currentLocation);
-
 search("Durban");
+
+function getPosition(position) {
+  console.log(position);
+  let latitude = position.coords.latitude;
+  let longtitude = position.coords.longitude;
+
+  let apiKey = "c03face7caa58a9b7ffa9f52b7238a93";
+  let units = "metric";
+  let apiUrl = `https://api.openweathermap.org/data/2.5/weather?lat=${latitude}&lon=${longtitude}&appid=${apiKey}&units=${units}`;
+
+  axios.get(apiUrl).then(showWeather);
+}
+
+function showWeather(response) {
+  let showTemp = Math.round(response.data.main.temp);
+  console.log(showTemp);
+  console.log(response);
+
+  let displayTemp = document.querySelector(".degrees");
+  displayTemp.innerHTML = showTemp;
+
+  let cityName = document.querySelector("#city");
+  cityName.innerHTML = response.data.name;
+
+  let descr = document.querySelector(".description");
+  descr.innerHTML = response.data.weather[0].main;
+}
+
+function getCurrentLoc(event) {
+  event.preventDefault();
+  navigator.geolocation.getCurrentPosition(getPosition);
+}
+
+let getCurrentLocButton = document.querySelector("#current-button");
+getCurrentLocButton.addEventListener("click", getCurrentLoc);
