@@ -101,6 +101,9 @@ ul {
 .active:hover {
   text-decoration: none;
 }
+#celsius-link {
+  text-decoration: none;
+}
 #fahrenheit-link {
   text-decoration: none;
 }
