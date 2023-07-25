@@ -100,14 +100,18 @@ ul {
 
 .active:hover {
   text-decoration: none;
+  cursor: default;
 }
 #celsius-link {
   text-decoration: none;
+  cursor: default;
 }
 #fahrenheit-link {
   text-decoration: none;
 }
-
+#fahrenheit-link:hover {
+  cursor: default;
+}
 #humidity {
   font-weight: bold;
   color: #155263;
