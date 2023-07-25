@@ -6,8 +6,8 @@ body {
   background-size: cover;
   background-repeat: no-repeat;
 }
-.city {
-  padding: 20px;
+#city {
+  font-size: 36px;
   font-family: sans-serif;
   font-weight: bolder;
 }
@@ -26,15 +26,22 @@ body {
   top: -34px;
 }
 
-#city-name {
-  font-size: 35px;
-}
-
 ul {
   position: relative;
   bottom: -70px;
   text-transform: capitalize;
   text-align: left;
+}
+
+.currentContent {
+  border: none;
+  padding: 15px;
+  max-width: 500px;
+  position: relative;
+  left: 30%;
+  background: rgb(248, 243, 232, 0.3);
+  box-shadow: 0 0 40px rgba(0, 0, 0, 0.2), 0 0 40px rgba(0, 0, 0, 0.2);
+  border-radius: 3px;
 }
 
 .card-body {
@@ -65,19 +72,7 @@ ul {
   font-size: 20px;
   text-transform: capitalize;
 }
-#current-Button {
-  border: none;
-  padding: 1px 5px;
-  color: rgb(52, 50, 50);
-  border-radius: 5px;
-}
 
-.searchButton {
-  border: none;
-  padding: 1px 5px;
-  color: rgb(52, 50, 50);
-  border-radius: 5px;
-}
 .unitC {
   font-size: 35px;
   color: #155263;
@@ -86,17 +81,6 @@ ul {
 #search-input {
   padding: 15px;
   font-size: 20px;
-}
-
-.searchButton:hover {
-  background: cornflowerblue;
-  color: #fff;
-  transition: all 150ms ease-in-out;
-}
-#current-Button:hover {
-  background: cornflowerblue;
-  color: #fff;
-  transition: all 150ms ease-in-out;
 }
 
 .footer {
