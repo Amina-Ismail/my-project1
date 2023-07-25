@@ -60,7 +60,6 @@ ul {
 }
 
 .card {
-  height: fit-content;
   display: flex;
   flex-direction: column;
   padding: 20px;
@@ -76,8 +75,9 @@ ul {
 }
 .temp-desc {
   font-weight: bold;
-  font-size: 20px;
+  font-size: 14px;
   text-transform: capitalize;
+  opacity: 0.8;
 }
 
 .unitC {
@@ -149,4 +149,5 @@ li strong {
 
 .minTemp {
   font-size: 22px;
+  opacity: 0.8;
 }
