@@ -82,25 +82,12 @@ function getPosition(GeolocationPosition) {
   let lon = GeolocationPosition.coords.longitude;
   let apiKey = "b1332ot408bf42fec23dfc7ca30a0576";
   let apiUrl = `https://api.shecodes.io/weather/v1/current?lon=${lon}&lat=${lat}&key=b1332ot408bf42fec23dfc7ca30a0576$units=metric`;
-  axios.get(apiUrl).then(showWeather);
+  axios.get(apiUrl).then(showTemperature);
 }
 
 function currentLocation(event) {
   event.preventDefault();
   navigator.geolocation.getCurrentPosition(getPosition);
-}
-
-function showWeather(response) {
-  let showTemp = Math.round(response.data.temperature.current);
-
-  let displayTemp = document.querySelector(".degrees");
-  displayTemp.innerHTML = showTemp;
-
-  let cityName = document.querySelector("#city-name");
-  cityName.innerHTML = response.data.city;
-
-  let descr = document.querySelector(".description");
-  descr.innerHTML = response.data.condition.description;
 }
 
 let celsiusTemperature = null;
