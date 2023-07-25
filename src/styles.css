@@ -76,6 +76,7 @@ ul {
 .unitC {
   font-size: 35px;
   color: #155263;
+  text-decoration: none;
 }
 
 #search-input {
@@ -94,9 +95,13 @@ ul {
 .active {
   color: #155263;
   cursor: default;
+  text-decoration: none;
 }
 
 .active:hover {
+  text-decoration: none;
+}
+#fahrenheit-link {
   text-decoration: none;
 }
 
