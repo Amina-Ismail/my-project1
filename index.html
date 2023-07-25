@@ -15,6 +15,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Noto+Serif:ital,wght@1,700&display=swap" rel="stylesheet">
+
 <script src="https://unpkg.com/axios@1.1.2/dist/axios.min.js"></script>
     <link href="src/styles.css" rel="stylesheet" />
   </head>
@@ -22,47 +23,73 @@
   <body>
     <div class="container">
     
-    <form id="search-input">
-      <div class="city">
-      
-        <input type="City" placeholder="Enter your City" autocomplete="off" autofocus="on" id= "city-input"/>
-        <span> <input type="submit" value= "Search" class="searchButton"/> </span> <span><button id="current-Button"> Current </button></span>
-      </div> 
+    <form id="search-input" class="mb-3">
+        <div class="row">
+       <div class="col-6">
+                <input
+                  type="search"
+                  placeholder="Type a city.."
+                  class="form-control"
+                  id="city-input"
+                  autocomplete="off"
+                />
+              </div>
+            <div class="col-3">
+                <input
+                  type="submit"
+                  value="Search"
+                  class="btn btn-primary w-100"
+                /></div>
+        </div>
+
     </form>
     
-    <p class="content"><div class="current-day">
-      <div id="city-name">Durban</div>
-      <div class="para-date">
-      26 JUNE 2023
-      </div>
-    
-    
-     <div class="para-temp">
-<span class="degrees">
-  18</span><span class= unitC>°C </span><div class="units">
-      <a href="#" id="fahrenheit-link">˚F</a> |
-      <a href="#" id="celsius-link">˚C</a> </div>
-  <div class="description"> Partly Cloudy</div>
+
+
+    <div class="row">
+        <div class="col-6">
+    <div class="content"><div class="currentDay" >
+      <div id="city">Durban</div>
+      <div class="dateAndTime">
+      <span class="para-day">
+      Monday</span> <span class="time">16:18</span></div>
+      <div class="temp">
+<span class="degrees">18</span><span class="units"><a href="#" id="celsius-link" class="active">˚C</a> | <a href="#" id="fahrenheit-link">˚F</a></span></div>
+         <div><img src="" alt="Clear" id="icon" class="float-left" /></div>
+        </div>
+    </div>
 </div>
-</div>
-    </p>
+<div class="col-6"> 
+    <ul>
+        <li>Humidity: <span id="humidity"></span>%</li>
+        <li>Wind: <span id="wind"></span> km/h</li>
+        <li>Condition: <span class="description"> </span></li>
+         </ul>
+       </div>
+     </div>
+   
+    
 
         <div class="row">
-        <div class="col">
-          <div class="card">
-            <div class="card-body">
-              <h5 class="card-title">Tuesday</h5>
-              <p class="card-text"> 21°C/11°C 
-                <div class=temp-desc> Rain </div>
-              </p>
-            </div>
-          </div>
-        </div>
+  <div class="col">
+    <div class="card">
+      <div class="card-body">
+        <h5 class="card-title">Tuesday</h5>
+        <p class="card-text">
+          <div class="firstTemp">21°C/11°C</div>
+          <div class="firstIcon">🌥️</div>
+          <div class="temp-desc">Rain</div>
+        </p>
+      </div>
+    </div>
+  </div>
+
         <div class="col">
           <div class="card">
             <div class="card-body">
               <h5 class="card-title">Wednesday</h5>
-              <p class="card-text">23°C/17°C
+              <p class="card-text"> <div class="secondTemp">23°C/17°C</div>
+                <div class="secondIcon">🌥️</div>
                   <div class=temp-desc> Partly Cloudy </div>
               </p>
             </div>
@@ -72,7 +99,8 @@
             <div class="card">
             <div class="card-body">
               <h5 class="card-title">Thursday</h5>
-              <p class="card-text">18°C/11°C
+              <p class="card-text"> <div class="thirdTemp">18°C/11°C</div>
+                <div class="thirdIcon">🌥️</div>
                   <div class=temp-desc> Drizzle </div>
               </p>
             </div>
@@ -82,7 +110,8 @@
           <div class="card">
             <div class="card-body">
               <h5 class="card-title">Friday</h5>
-              <p class="card-text">24°C/17°C
+              <p class="card-text"> <div class="forthTemp">24°C/17°C</div>
+                <div class="forthIcon">🌥️</div>
                 <div class=temp-desc> Sunny </div></p>
             </div>
           </div>
@@ -91,16 +120,21 @@
             <div class="card">
               <div class="card-body">
                 <h5 class="card-title">Saturday</h5>
-                <p class="card-text">26°C/21°C
+                <p class="card-text"> <div class="fifthTemp">26°C/21°C</div>
+                    <div class="fifthIcon">🌥️</div>
                   <div class=temp-desc> Sunny </div></p>
               </div>
             </div>
           </div>
-
-
+        </div>
+    
+    
           <p><div class="footer">Acces GitHub <a href="https://github.com/Amina-Ismail/my-project1">repository</a></div></p>
-        
-    <script src="src/index.js"></script>
     </div>
+    <script src="src/index.js"></script>
+    
+    
+
   </body>
+  
 </html>
