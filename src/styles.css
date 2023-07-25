@@ -90,9 +90,7 @@ ul {
 
 #Icon {
   font-size: 50px;
-  line-height: 1;
 }
-
 .active {
   color: #155263;
   cursor: default;
@@ -100,4 +98,20 @@ ul {
 
 .active:hover {
   text-decoration: none;
+}
+
+#humidity {
+  font-weight: bold;
+  color: #155263;
+}
+#wind {
+  font-weight: bold;
+  color: #155263;
+}
+#condition {
+  font-weight: bold;
+  color: #155263;
+}
+li strong {
+  color: #155263;
 }
