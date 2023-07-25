@@ -28,127 +28,143 @@
 
   <body>
     <div class="container">
-      <form id="search-input" class="mb-3">
-        <div class="row">
-          <div class="col-6">
-            <input
-              type="search"
-              placeholder="Type a city.."
-              class="form-control"
-              id="city-input"
-              autocomplete="off"
-            />
-          </div>
-          <div class="col-3">
-            <input type="submit" value="Search" class="btn btn-primary w-100" />
+      <div class="weatherAppWrapper">
+        <div class="weatherInput">
+          <form id="search-input" class="mb-3">
+            <div class="row">
+              <div class="col-6">
+                <input
+                  type="search"
+                  placeholder="Type a city.."
+                  autofocus="on"
+                  autocomplete="off"
+                  id="city-input"
+                  class="form-control shadow-sm"
+                />
+              </div>
+              <div class="col-3">
+                <input
+                  type="submit"
+                  value="Search"
+                  class="form-control btn btn-primary shadow-sm"
+                  id="search-input"
+                />
+              </div>
+              <div class="col-3">
+                <input
+                  type="submit"
+                  value="Current"
+                  class="btn btn-success w-100"
+                  id="current-button"
+                />
+              </div>
+            </div>
+          </form>
+        </div>
+        <div class="currentContent">
+          <div class="row">
+            <div class="col-6">
+              <div class="content">
+                <div class="currentDay">
+                  <div id="city">Durban</div>
+                  <div class="dateAndTime">
+                    <span class="para-day"> Monday</span>
+                    <span class="time">16:18</span>
+                  </div>
+                  <div class="temp">
+                    <span class="degrees">18</span
+                    ><span class="units"
+                      ><a href="#" id="celsius-link" class="active">˚C</a> |
+                      <a href="#" id="fahrenheit-link">˚F</a></span
+                    >
+                  </div>
+                  <div>
+                    <img src="" alt="Clear" id="icon" class="float-left" />
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col-6">
+              <ul>
+                <li>Humidity: <span id="humidity"></span><strong>%</strong></li>
+                <li>Wind: <span id="wind"></span> <strong>Km/h</strong></li>
+                <li>
+                  Condition: <strong><span class="description"></span></strong>
+                </li>
+              </ul>
+            </div>
           </div>
         </div>
-      </form>
-      <div class="currentContent">
         <div class="row">
-          <div class="col-6">
-            <div class="content">
-              <div class="currentDay">
-                <div id="city">Durban</div>
-                <div class="dateAndTime">
-                  <span class="para-day"> Monday</span>
-                  <span class="time">16:18</span>
-                </div>
-                <div class="temp">
-                  <span class="degrees">18</span
-                  ><span class="units"
-                    ><a href="#" id="celsius-link" class="active">˚C</a> |
-                    <a href="#" id="fahrenheit-link">˚F</a></span
-                  >
-                </div>
-                <div>
-                  <img src="" alt="Clear" id="icon" class="float-left" />
+          <div class="col">
+            <div class="card">
+              <div class="card-body">
+                <h5 class="card-title">Tuesday</h5>
+                <div class="card-text">
+                  <div class="firstTemp">21°C/11°C</div>
+                  <div class="firstIcon">🌥️</div>
+                  <div class="temp-desc">Rain</div>
                 </div>
               </div>
             </div>
           </div>
-          <div class="col-6">
-            <ul>
-              <li>Humidity: <span id="humidity"></span><strong>%</strong></li>
-              <li>Wind: <span id="wind"></span> <strong>Km/h</strong></li>
-              <li>
-                Condition: <strong><span class="description"></span></strong>
-              </li>
-            </ul>
+          <div class="col">
+            <div class="card">
+              <div class="card-body">
+                <h5 class="card-title">Wednesday</h5>
+                <div class="card-text">
+                  <div class="secondTemp">23°C/17°C</div>
+                  <div class="secondIcon">🌥️</div>
+                  <div class="temp-desc">Partly Cloudy</div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col">
+            <div class="card">
+              <div class="card-body">
+                <h5 class="card-title">Thursday</h5>
+                <div class="card-text">
+                  <div class="thirdTemp">18°C/11°C</div>
+                  <div class="thirdIcon">🌥️</div>
+                  <div class="temp-desc">Drizzle</div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col">
+            <div class="card">
+              <div class="card-body">
+                <h5 class="card-title">Friday</h5>
+                <div class="card-text">
+                  <div class="forthTemp">24°C/17°C</div>
+                  <div class="forthIcon">🌥️</div>
+                  <div class="temp-desc">Sunny</div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col">
+            <div class="card">
+              <div class="card-body">
+                <h5 class="card-title">Saturday</h5>
+                <div class="card-text">
+                  <div class="fifthTemp">26°C/21°C</div>
+                  <div class="fifthIcon">🌥️</div>
+                  <div class="temp-desc">Sunny</div>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </div>
-      <div class="row">
-        <div class="col">
-          <div class="card">
-            <div class="card-body">
-              <h5 class="card-title">Tuesday</h5>
-              <div class="card-text">
-                <div class="firstTemp">21°C/11°C</div>
-                <div class="firstIcon">🌥️</div>
-                <div class="temp-desc">Rain</div>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="col">
-          <div class="card">
-            <div class="card-body">
-              <h5 class="card-title">Wednesday</h5>
-              <div class="card-text">
-                <div class="secondTemp">23°C/17°C</div>
-                <div class="secondIcon">🌥️</div>
-                <div class="temp-desc">Partly Cloudy</div>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="col">
-          <div class="card">
-            <div class="card-body">
-              <h5 class="card-title">Thursday</h5>
-              <div class="card-text">
-                <div class="thirdTemp">18°C/11°C</div>
-                <div class="thirdIcon">🌥️</div>
-                <div class="temp-desc">Drizzle</div>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="col">
-          <div class="card">
-            <div class="card-body">
-              <h5 class="card-title">Friday</h5>
-              <div class="card-text">
-                <div class="forthTemp">24°C/17°C</div>
-                <div class="forthIcon">🌥️</div>
-                <div class="temp-desc">Sunny</div>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="col">
-          <div class="card">
-            <div class="card-body">
-              <h5 class="card-title">Saturday</h5>
-              <div class="card-text">
-                <div class="fifthTemp">26°C/21°C</div>
-                <div class="fifthIcon">🌥️</div>
-                <div class="temp-desc">Sunny</div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <div>
-        <div class="footer">
-          Acces GitHub
-          <a href="https://github.com/Amina-Ismail/my-project1">repository</a>
-          by Amina Ismail
-        </div>
+      <div class="footer">
+        Acces GitHub
+        <a href="https://github.com/Amina-Ismail/my-project1">repository</a>
+        by Amina Ismail
       </div>
     </div>
+
     <script src="src/index.js"></script>
   </body>
 </html>

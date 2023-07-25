@@ -6,6 +6,15 @@ body {
   background-size: cover;
   background-repeat: no-repeat;
 }
+.weatherAppWrapper {
+  max-width: 100%;
+  margin: 30px auto;
+  padding: 20px;
+  background: rgb(248, 243, 232, 0.5);
+  border: none;
+  box-shadow: 0 0 40px rgba(0, 0, 0, 0.2), 0 0 40px rgba(0, 0, 0, 0.2);
+}
+
 #city {
   font-size: 36px;
   font-family: sans-serif;
@@ -40,7 +49,6 @@ ul {
   display: block;
   margin: 0 auto;
   background: rgb(248, 243, 232, 0.3);
-  box-shadow: 0 0 40px rgba(0, 0, 0, 0.2), 0 0 40px rgba(0, 0, 0, 0.2);
   border-radius: 3px;
 }
 
@@ -58,7 +66,7 @@ ul {
   flex-direction: column;
   padding: 20px;
   background: rgb(248, 243, 232, 0.3);
-  box-shadow: 0 0 40px rgba(0, 0, 0, 0.2), 0 0 40px rgba(0, 0, 0, 0.2);
+
   border-radius: 3px;
   margin-top: 30px;
   margin-bottom: 30px;
@@ -77,11 +85,6 @@ ul {
   font-size: 35px;
   color: #155263;
   text-decoration: none;
-}
-
-#search-input {
-  padding: 15px;
-  font-size: 20px;
 }
 
 .footer {
@@ -135,5 +138,12 @@ li strong {
   border: none;
   color: #155263;
   background: rgb(248, 243, 232, 0.3);
+  margin-bottom: 20px;
+}
+.weatherInput {
+  max-width: 500px;
+  display: block;
+  margin: 0 auto;
+  margin-top: 20px;
   margin-bottom: 20px;
 }
