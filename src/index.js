@@ -76,19 +76,6 @@ function displayCelsiusTemp(event) {
   temperatureElement.innerHTML = Math.round(celsiusTemperature);
 }
 
-let celsiusTemperature = null;
-
-let form = document.querySelector("#search-input");
-form.addEventListener("submit", handleSearch);
-
-let fahrenheitLink = document.querySelector("#fahrenheit-link");
-fahrenheitLink.addEventListener("click", displayFahrenheitTemp);
-
-let celsiusLink = document.querySelector("#celsius-link");
-celsiusLink.addEventListener("click", displayCelsiusTemp);
-
-search("Durban");
-
 function getPosition(position) {
   console.log(position);
   let latitude = position.coords.latitude;
@@ -99,6 +86,11 @@ function getPosition(position) {
   let apiUrl = `https://api.openweathermap.org/data/2.5/weather?lat=${latitude}&lon=${longtitude}&appid=${apiKey}&units=${units}`;
 
   axios.get(apiUrl).then(showWeather);
+}
+
+function getCurrentLoc(event) {
+  event.preventDefault();
+  navigator.geolocation.getCurrentPosition(getPosition);
 }
 
 function showWeather(response) {
@@ -116,10 +108,18 @@ function showWeather(response) {
   descr.innerHTML = response.data.weather[0].main;
 }
 
-function getCurrentLoc(event) {
-  event.preventDefault();
-  navigator.geolocation.getCurrentPosition(getPosition);
-}
-
 let getCurrentLocButton = document.querySelector("#current-button");
 getCurrentLocButton.addEventListener("click", getCurrentLoc);
+
+let celsiusTemperature = null;
+
+let form = document.querySelector("#search-input");
+form.addEventListener("submit", handleSearch);
+
+let fahrenheitLink = document.querySelector("#fahrenheit-link");
+fahrenheitLink.addEventListener("click", displayFahrenheitTemp);
+
+let celsiusLink = document.querySelector("#celsius-link");
+celsiusLink.addEventListener("click", displayCelsiusTemp);
+
+search("Durban");
