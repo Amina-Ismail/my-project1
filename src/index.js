@@ -133,6 +133,7 @@ function formatDay(timestamp) {
 }
 
 function displayForecast(response) {
+  console.log(response.data.daily);
   let forecast = response.data.daily;
 
   let forecastElement = document.querySelector("#forecast");
@@ -157,7 +158,9 @@ function displayForecast(response) {
                     <div class="firstIcon"><img src="http://openweathermap.org/img/wn/${
                       forecastDay.weather[0].icon
                     }@2x.png"></div>
-                    <div class="temp-desc">Rain</div>
+                    <div class="temp-desc">${
+                      forecastDay.weather[0].description
+                    }</div>
                   </div>
                 </div>
               </div>
