@@ -44,6 +44,8 @@ function showTemperature(response) {
     `http://shecodes-assets.s3.amazonaws.com/api/weather/icons/${response.data.condition.icon}.png`
   );
   iconElement.setAttribute("alt", response.data.condition.description);
+
+  getForecast(response.data.coordinates);
 }
 
 function search(city) {
@@ -106,6 +108,65 @@ function showWeather(response) {
 
   let descr = document.querySelector(".description");
   descr.innerHTML = response.data.weather[0].main;
+}
+
+function getForecast(coordinates) {
+  console.log(coordinates);
+  let apiUrl = `https://api.openweathermap.org/data/2.5/onecall?lat=${coordinates.latitude}&lon=${coordinates.longitude}&appid=c03face7caa58a9b7ffa9f52b7238a93&units=metric`;
+  console.log(apiUrl);
+  axios.get(apiUrl).then(displayForecast);
+}
+
+function formatDay(timestamp) {
+  let date = new Date(timestamp * 1000);
+  let day = date.getDay();
+  let days = [
+    "Sunday",
+    "Monday",
+    "Tuesday",
+    "Wednesday",
+    "Thursday",
+    "Friday",
+    "Saturday",
+  ];
+  return days[day];
+}
+
+function displayForecast(response) {
+  let forecast = response.data.daily;
+
+  let forecastElement = document.querySelector("#forecast");
+
+  let forecastHTML = `<div class="row">`;
+
+  forecast.forEach(function (forecastDay, index) {
+    if (index < 6) {
+      forecastHTML =
+        forecastHTML +
+        ` <div class="col">
+              <div class="card">
+                <div class="card-body">
+                  <h5 class="card-title">${formatDay(forecastDay.dt)}</h5>
+                  <div class="card-text">
+                    <div class="firstTemp">
+                      <strong class="maxTemp">${Math.round(
+                        forecastDay.temp.max
+                      )}</strong>°/<span class="minTemp"
+                        >${Math.round(forecastDay.temp.min)}°</span>
+                    </div>
+                    <div class="firstIcon"><img src="http://openweathermap.org/img/wn/${
+                      forecastDay.weather[0].icon
+                    }@2x.png"></div>
+                    <div class="temp-desc">Rain</div>
+                  </div>
+                </div>
+              </div>
+              </div>
+            `;
+    }
+  });
+  forecastHTML = forecastHTML + `</div>`;
+  forecastElement.innerHTML = forecastHTML;
 }
 
 let getCurrentLocButton = document.querySelector("#current-button");
