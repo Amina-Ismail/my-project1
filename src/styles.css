@@ -57,7 +57,6 @@ ul {
 }
 .card-text {
   color: #155263;
-  font-weight: bold;
 }
 
 .card {
@@ -146,4 +145,8 @@ li strong {
   margin: 0 auto;
   margin-top: 20px;
   margin-bottom: 20px;
+}
+
+.minTemp {
+  font-size: 22px;
 }
