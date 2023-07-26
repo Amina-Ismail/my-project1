@@ -1,6 +1,8 @@
 body {
   font-family: sans-serif;
+  background: #57adc5;
   background-image: url("/images/25503.jpg");
+  background-blend-mode: multiply;
   background-attachment: fixed;
   background-size: cover;
   background-repeat: no-repeat;
